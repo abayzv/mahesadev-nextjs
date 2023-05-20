@@ -1,6 +1,6 @@
 import ArticleList from "./article-list"
 import { Metadata } from "next"
-
+import {fetchDatas} from "../../../api"
 interface Article{
     id: number
     title: string
@@ -17,9 +17,8 @@ export const metadata: Metadata = {
 }
 
 async function getArticles() : Promise<Article[]>{
-    const res = await fetch('http://localhost:3000/api/article')
-    const articles = await res.json()
-    
+    const articles = await fetchDatas('/article')
+
     return articles
 }  
 

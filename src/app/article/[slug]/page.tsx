@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { Metadata } from "next"
 import ArticleContent from "./article-content"
+import {fetchDatas} from "../../../../api"
 
 interface Article {
     id: number
@@ -12,9 +13,7 @@ interface Article {
 }
 
 async function getArticle(slug: string) : Promise<Article> {
-    const res = await fetch(`http://localhost:3000/api/article/${slug}`)
-    const article = await res.json()
-
+    const article = await fetchDatas(`/article/${slug}`)
     return article
 }
 
