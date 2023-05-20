@@ -17,20 +17,20 @@ async function getArticle(slug: string) : Promise<Article> {
     return article
 }
 
-export let metadata: Metadata = {
-    title: '',
-    description: ''
-}
+export async function generateMetadata({params}: {params: {slug: string}}) {
+    const {slug} = params
+    const article = await getArticle(slug)
+
+    return {
+      title: article.title,
+      description: article.content,
+    };
+  }
 
 export default async function Article({params}: {params: {slug: string}}){
     const {slug} = params
     const article = await getArticle(slug)
     
-    metadata = {
-        title: article.title,
-        description: article.content
-    }
-
     return (
         <div>
             <ArticleContent article={article} />
