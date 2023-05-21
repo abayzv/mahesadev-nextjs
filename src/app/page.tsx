@@ -2,6 +2,7 @@ import Hero from "@/components/hero";
 import MediaSlider from "@/components/media-slider";
 import stations from "../../api/stations";
 import Select from "@/components/form/select";
+import { Metadata } from "next";
 
 interface Media {
   src: string
