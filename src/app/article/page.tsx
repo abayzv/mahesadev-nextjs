@@ -1,13 +1,15 @@
 import ArticleList from "./article-list"
 import { Metadata } from "next"
 import {fetchDatas} from "../../../api"
+
 interface Article{
     id: number
-    title: string
-    content: string
-    slug: string
-    category: string
-    thumbnail: string
+    image: string
+    likes: number
+    tags: Array<string>
+    text: string
+    publishDate: string
+    owner: Object
 }
 
 
@@ -17,9 +19,9 @@ export const metadata: Metadata = {
 }
 
 async function getArticles() : Promise<Article[]>{
-    const articles = await fetchDatas('/article')
+    const articles = await fetchDatas('/post')
 
-    return articles
+    return articles.data
 }  
 
 export default async function Page() {

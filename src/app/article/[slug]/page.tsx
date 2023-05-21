@@ -3,17 +3,27 @@ import { Metadata } from "next"
 import ArticleContent from "./article-content"
 import {fetchDatas} from "../../../../api"
 
-interface Article {
+interface Owner {
     id: number
     title: string
-    content: string
-    slug: string
-    category: string
-    thumbnail: string
+    firstName: string
+    lastName: string
+    picture: string
+}
+
+interface Article {
+    id: number
+    image: string
+    likes: number
+    link: string
+    tags: Array<string>
+    text: string
+    publishDate: string
+    owner: Owner
 }
 
 async function getArticle(slug: string) : Promise<Article> {
-    const article = await fetchDatas(`/article/${slug}`)
+    const article = await fetchDatas(`/post/${slug}`)
     return article
 }
 
@@ -22,8 +32,8 @@ export async function generateMetadata({params}: {params: {slug: string}}) {
     const article = await getArticle(slug)
 
     return {
-      title: article.title,
-      description: article.content,
+      title: article.text,
+      description: article.text,
     };
   }
 

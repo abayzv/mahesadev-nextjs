@@ -5,6 +5,10 @@ const nextConfig = {
             {
                 hostname: 'picsum.photos',
                 protocol: 'https',
+            },
+            {
+                hostname: 'img.dummyapi.io',
+                protocol: 'https',
             }
         ]
     }

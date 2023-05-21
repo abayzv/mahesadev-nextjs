@@ -1,12 +1,13 @@
 import axios from 'axios';
 
-const baseURL = 'http://localhost:3000/api';
+const baseURL = 'https://dummyapi.io/data/v1/';
 
 // axios base url config
 const api = axios.create({
     baseURL,
     headers: {
         'Content-Type': 'application/json',
+        'app-id' : '6469766e9f6e8f74e29dfca1'
     },
 });
 
