@@ -1,10 +1,6 @@
 import axios from 'axios';
 
-<<<<<<< HEAD
-const baseURL = "https://mahesadev-nextjs.vercel.app/api"
-=======
 const baseURL = 'https://dummyapi.io/data/v1/';
->>>>>>> main
 
 // axios base url config
 const api = axios.create({
