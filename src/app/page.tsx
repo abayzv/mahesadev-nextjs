@@ -2,7 +2,7 @@ import Hero from "@/components/hero";
 import MediaSlider from "@/components/media-slider";
 import stations from "../../api/stations";
 import Select from "@/components/form/select";
-import { Metadata } from "next";
+import FormTicket from "./form-ticket";
 
 interface Media {
   src: string
@@ -32,16 +32,14 @@ export default function Home() {
       title: 'KAI Access',
     }
   ]
-  const date = new Date()
-  const dateLocale = date.toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
 
-  const stationsOptions = stations.map((station) => {
-    return {
-      label: station.name,
-      value: station.code,
-      group: station.cityname
-    }
-  })
+  const date = new Date();
+  const dateLocale = date.toLocaleDateString("id-ID", {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+  });
 
   return (
     <div>
@@ -49,38 +47,12 @@ export default function Home() {
 
         {/* Section Order */}
         <div className="relative flex justify-center">
-        <div className="container mx-auto bg-white shadow-lg flex absolute -top-20">
-           <div className="text-3xl font-bold text-white bg-orange-500 w-1/4 p-5 flex flex-col items-center justify-center text-center">{dateLocale}</div>
-           <div className="w-full p-10 relative overflow-clip">
-            <div className="bg-orange-500 w-20 h-20 absolute -top-10 -right-10 transform rotate-45"></div>
-            <form action="" className="grid grid-cols-2 gap-x-10 gap-y-5">
-                <div className="grid gap-2">
-                  <label className="text-lg font-medium text-blue-800" htmlFor="">Stasiun Asal</label>
-                  <Select label="Stasiun Asal" options={stationsOptions} icon="train" placeHolder="Stasiun Asal"/>
-                </div>
-                <div className="grid gap-2">
-                  <label className="text-lg font-medium text-blue-800" htmlFor="">Stasiun Tujuan</label>
-                  <Select label="Stasiun Asal" options={stationsOptions} icon="train" placeHolder="Stasiun Tujuan"/>
-                </div>
-                <div className="grid gap-2">
-                  <label className="text-lg font-medium text-blue-800" htmlFor="">Tanggal Berangkat</label>
-                  <input type="date" className="p-2 border-[#ededed] border rounded" placeholder="Tanggal Berangkat"/>
-                </div>
-                <div className="grid gap-2">
-                  <label className="text-lg font-medium text-blue-800" htmlFor="">Dewasa</label>
-                  <input type="number" className="p-2 border-[#ededed] border rounded" placeholder="Dewasa"/>
-                </div>
-                <div className="grid gap-2">
-                  <label className="text-lg font-medium text-blue-800" htmlFor="">Anak</label>
-                  <input type="number" className="p-2 border-[#ededed] border rounded" placeholder="Anak"/>
-                </div>
-                <div className="grid gap-2">
-                <label className="text-lg font-medium text-blue-800" htmlFor=""></label>
-                <button className="bg-blue-800 text-white text-lg  rounded-md">Cari Tiket</button>
-                </div>
-            </form>
-           </div>
-        </div>
+          <div className="container mx-auto bg-white shadow-lg flex absolute -top-20">
+            <div className="text-3xl font-bold text-white bg-orange-500 w-1/4 p-5 flex flex-col items-center justify-center text-center">
+                {dateLocale}
+            </div>
+            <FormTicket />
+         </div>
         </div>
         {/* End Section order */}
 

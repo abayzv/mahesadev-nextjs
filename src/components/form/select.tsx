@@ -2,6 +2,7 @@
 
 import {useState} from 'react'
 import Icon from '../icon'
+import { useSearchStore } from '../../../lib/store'
 
 interface options{
     label: string
@@ -13,9 +14,10 @@ interface groupResult {
     [key: string]: options[]
 }
 
-export default function Select({label, options, icon = "", placeHolder} : {label: string, options: options[], icon?: string, placeHolder?: string}){
-    const [input, setInput] = useState('')
+export default function Select({name, options, icon = "", placeHolder, value, required = false} : {name : string, options: options[], icon?: string, placeHolder?: string, value?: string, required?: boolean}){
+    const [input, setInput] = useState(value || "")
     const [showResult, setShowResult] = useState(false)
+    const { search, setSearch } = useSearchStore()
 
     // handle input change
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +30,6 @@ export default function Select({label, options, icon = "", placeHolder} : {label
         }
 
     }
-
 
     const result = options.filter(option => option.label.toLowerCase().includes(input.toLowerCase()))
     const groupResult : groupResult = {}
@@ -57,6 +58,7 @@ export default function Select({label, options, icon = "", placeHolder} : {label
                                             <div key={index} className='p-2 hover:bg-blue-100 cursor-pointer' onClick={() => {
                                                 setInput(option.label)
                                                 setShowResult(false)
+                                                setSearch({...search, [name]: option.value})
                                             }}>{option.label}</div>
                                         ))
                                     }
@@ -80,12 +82,25 @@ export default function Select({label, options, icon = "", placeHolder} : {label
         }
     }
 
+    // render required
+    const renderRequired = () => {
+        if(required && !search[name]){
+            return (
+                <div className='absolute mt-2  text-red-500 text-sm'>Silahkan Pilih {placeHolder}</div>
+            )
+        }
+    }
+
     return (
         <div className='relative'>
            <div className='flex border'>
                 {renderIcon()}
-                <input type="text" className="p-2 w-full outline-none" onChange={handleInputChange} value={input} placeholder={placeHolder} />
+                <input type="text" className="p-2 w-full outline-none" name={name} onChange={handleInputChange} onFocus={()=> {
+                    setInput("")
+                    setSearch({...search, [name]: ""})
+                }} value={input} placeholder={placeHolder} autoComplete='false' />
            </div>
+           {renderRequired()}
            {renderResult()}
         </div>
     )
