@@ -29,7 +29,7 @@ export default async function Page() {
     const articles = await getArticles()
 
     return (
-        <div>
+        <div className="container mx-auto py-16">
             <h1>Article List</h1>
             <ArticleList articles={articles} />
         </div>

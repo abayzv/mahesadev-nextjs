@@ -9,6 +9,10 @@ const nextConfig = {
             {
                 hostname: 'img.dummyapi.io',
                 protocol: 'https',
+            },
+            {
+                hostname: 'mahesadev.com',
+                protocol: 'https',
             }
         ]
     }

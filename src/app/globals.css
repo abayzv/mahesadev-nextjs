@@ -2,38 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+/* fadein-left */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@keyframes fadein-left {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+/* fadein-right */
+
+@keyframes fadein-right-custom {
+  from {
+    opacity: 0;
+    transform: translateX(700px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(300px);
+  }
 }
 
-.title::before{
-  /* color: var(--color) !important; */
-  content: "";
-  display: block;
-  width: 50px;
-  height: 50px;
+@keyframes fadein-right {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* slide-left */
+@keyframes slide-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.slide-left {
+  animation: slide-left linear 30s infinite;
+}
+
+.fadein-left {
+  animation: fadein-left 1s;
+}
+
+.fadein-right {
+  animation: fadein-right 1s;
+}
+
+.fadein-right-custom {
+  animation: fadein-right-custom 1s;
+}
+
+.style-1{
+  position: relative;
+}
+
+.style-1::before {
+  content: '';
   position: absolute;
-  top: 5rem;
-  left: 0;
-  background-color: var(--color);
+  top: 1rem;
+  left: 4rem;
+  width: 500px;
+  height: 100%;
+  border-radius: 10px;
+  @apply bg-orange-500
 }
