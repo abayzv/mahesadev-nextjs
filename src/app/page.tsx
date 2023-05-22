@@ -3,6 +3,7 @@ import MediaSlider from "@/components/media-slider";
 import stations from "../../api/stations";
 import Select from "@/components/form/select";
 import FormTicket from "./form-ticket";
+import CardDate from "@/components/card-date";
 
 interface Media {
   src: string
@@ -33,14 +34,6 @@ export default function Home() {
     }
   ]
 
-  const date = new Date();
-  const dateLocale = date.toLocaleDateString("id-ID", {
-      weekday: "long",
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-  });
-
   return (
     <div>
         <Hero/>
@@ -48,9 +41,7 @@ export default function Home() {
         {/* Section Order */}
         <div className="relative flex justify-center">
           <div className="container mx-auto bg-white shadow-lg flex absolute -top-20">
-            <div className="text-3xl font-bold text-white bg-orange-500 w-1/4 p-5 flex flex-col items-center justify-center text-center">
-                {dateLocale}
-            </div>
+            <CardDate />
             <FormTicket />
          </div>
         </div>
