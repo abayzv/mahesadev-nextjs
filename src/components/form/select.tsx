@@ -95,7 +95,7 @@ export default function Select({name, options, icon = "", placeHolder, value, re
         <div className='relative'>
            <div className='flex border'>
                 {renderIcon()}
-                <input type="text" className="p-2 w-full outline-none" name={name} onChange={handleInputChange} onFocus={()=> {
+                <input type="text" className="p-2 px-4 w-full outline-none" name={name} onChange={handleInputChange} onFocus={()=> {
                     setInput("")
                     setSearch({...search, [name]: ""})
                 }} value={input} placeholder={placeHolder} autoComplete='false' />

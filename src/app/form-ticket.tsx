@@ -101,7 +101,7 @@ export default function FormTicket() {
                     <Input
                     name="date"
                     type="date"
-                    icon="user"
+                    icon="date"
                     placeHolder="Tanggal Berangkat"
                     value={date || ""}
                     />

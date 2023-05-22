@@ -71,8 +71,22 @@ export default function Home() {
         </section>
         {/* End Call to Action */}
 
+         {/* Content 2  */}
+         <section className="bg-white py-32">
+          <div className="container mx-auto px-20 flex items-center justify-between gap-10">
+          <div className="w-1/2 flex justify-center style-1 fadein-left">
+              <img src="https://mahesadev.com/1c8bdc9a4fc72dbe29bc1e51e13d8bad.jpeg" className="w-[500px] rounded-lg style-1 hover:transform hover:scale-105 transition-all"/>
+            </div>
+            <div className="w-1/2 fadein-right">
+              <h2 className="text-6xl text-blue-800 font-black">CARA PEMBATALAN TIKET KERETA DI KAI ACCESS</h2>
+              <p className="mt-5 text-lg">Dengan mengupgrade membership KAI Access-mu menjadi member premium, Railpoint yang di kumpulkan bisa digunakan untuk membeli tika KA Komersial dan diskon pada merchant yang telah bekerjasama dengan KAI lho. Program Loyalitas Railpoint ini menggantikan program Award Ticket yang telah berakhir pada 31 Desember 2020.</p>
+            </div>
+          </div>
+        </section>
+        {/* End Content 1 */}
+
         {/* Media Slider */}
-        <MediaSlider media={mediaData} />
+          <MediaSlider media={mediaData} />
         {/* End Media Slider */}
     </div>
   )
