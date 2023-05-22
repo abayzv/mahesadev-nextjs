@@ -15,6 +15,8 @@
     "@types/react-dom": "18.2.4",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "bcrypt": "^5.1.0",
+    "crypto": "^1.0.1",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
     "next": "13.4.2",
@@ -24,9 +26,11 @@
     "swr": "^2.1.5",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4",
+    "uuid": "^9.0.0",
     "zustand": "^4.3.8"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "prisma": "^4.14.1"
   }
 }
