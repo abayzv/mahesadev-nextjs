@@ -4,6 +4,7 @@ import stations from "../../api/stations";
 import Select from "@/components/form/select";
 import FormTicket from "./form-ticket";
 import CardDate from "@/components/card-date";
+import RunningText from "@/components/running-text";
 
 interface Media {
   src: string
@@ -36,6 +37,7 @@ export default function Home() {
 
   return (
     <div>
+        <RunningText/>
         <Hero/>
 
         {/* Section Order */}
@@ -53,6 +55,7 @@ export default function Home() {
             <div className="w-1/2 fadein-left">
               <h2 className="text-4xl text-blue-800 font-black">AYO UPGRADE MEMBERSHIP KAI ACCESS KAMU KE <span className="text-orange-500">MEMBER PREMIUM</span> DAN NIKMATI RAGAM MANFAATNYA</h2>
               <p className="mt-5 text-lg">Dengan mengupgrade membership KAI Access-mu menjadi member premium, Railpoint yang di kumpulkan bisa digunakan untuk membeli tika KA Komersial dan diskon pada merchant yang telah bekerjasama dengan KAI lho. Program Loyalitas Railpoint ini menggantikan program Award Ticket yang telah berakhir pada 31 Desember 2020.</p>
+              <div className="mt-7"><button className="bg-orange-500 px-10 py-3 text-white">Upgrade Sekarang</button></div>
             </div>
             <div className="w-1/2 flex justify-center style-1 fadein-right">
               <img src="https://mahesadev.com/1c8bdc9a4fc72dbe29bc1e51e13d8bad.jpeg" className="w-[500px] rounded-lg style-1 hover:transform hover:scale-105 transition-all"/>
@@ -75,11 +78,12 @@ export default function Home() {
          <section className="bg-white py-32">
           <div className="container mx-auto px-20 flex items-center justify-between gap-10">
           <div className="w-1/2 flex justify-center style-1 fadein-left">
-              <img src="https://mahesadev.com/1c8bdc9a4fc72dbe29bc1e51e13d8bad.jpeg" className="w-[500px] rounded-lg style-1 hover:transform hover:scale-105 transition-all"/>
+              <img src="https://i.ytimg.com/vi/eq4CGvMt4F8/maxresdefault.jpg" className="w-[500px] rounded-lg style-1 hover:transform hover:scale-105 transition-all"/>
             </div>
             <div className="w-1/2 fadein-right">
               <h2 className="text-6xl text-blue-800 font-black">CARA PEMBATALAN TIKET KERETA DI KAI ACCESS</h2>
-              <p className="mt-5 text-lg">Dengan mengupgrade membership KAI Access-mu menjadi member premium, Railpoint yang di kumpulkan bisa digunakan untuk membeli tika KA Komersial dan diskon pada merchant yang telah bekerjasama dengan KAI lho. Program Loyalitas Railpoint ini menggantikan program Award Ticket yang telah berakhir pada 31 Desember 2020.</p>
+              <p className="mt-5 text-lg">Sekarang pembatalan tiket menggunakan KAI Acess sangat mudah, yuk simak informasi berikut untuk mengetahui tata cara pembatalan tiket di KAI Access.</p>
+              <div className="mt-5"><button className="bg-orange-500 px-10 py-3 text-white">Pelajari Lebih Lanjut</button></div>
             </div>
           </div>
         </section>
