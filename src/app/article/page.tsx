@@ -30,7 +30,6 @@ export default async function Page() {
 
     return (
         <div className="container mx-auto py-16">
-            <h1>Article List</h1>
             <ArticleList articles={articles} />
         </div>
     )
