@@ -15,4 +15,4 @@ export default function TestSwr() {
     return (
         <div>test swr</div>
     )
-}
+}       

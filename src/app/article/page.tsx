@@ -1,7 +1,7 @@
 import ArticleList from "./article-list"
 import { Metadata } from "next"
 import {fetchDatas} from "../../../api"
-import TestSwr from "./test-swr"
+import { findUserByEmail } from "../../../services/userServices"
 
 interface Article{
     id: number
@@ -31,7 +31,6 @@ export default async function Page() {
 
     return (
         <div className="container mx-auto py-16">
-            <TestSwr />
             <ArticleList articles={articles} />
         </div>
     )
