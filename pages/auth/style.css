@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-login{
+    background-image: url('https://mahesadev.com/bg-login.svg');
+}
+
+.cloud{
+    background-image: url('https://mahesadev.com/cloud.svg');
+}
+
+.wayang{
+    background-image: url('https://mahesadev.com/wayang.svg');
+}

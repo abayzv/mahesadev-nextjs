@@ -50,8 +50,6 @@ export default function FormTicket() {
         return station?.name;
     };
 
-    console.log(search)
-
     // render button
     const renderButton = () => {
         // if origin and destination empty

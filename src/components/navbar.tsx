@@ -1,16 +1,24 @@
 import Logo from "./logo";
 import Menu from "./menu";
+import LoginButton from "@/components/login-btn";
+import Profile from "@/components/profile";
 
-export default function Navbar() {
+export default function Navbar({session} : {session: any}) {
+
+    const renderLoginButton = () => {
+      if(session){
+        return <Profile user={session.user} />
+      } else {
+        return <LoginButton />
+      }
+    }
+
     return (
         <nav className="p-3 bg-white">
             <div className="container flex mx-auto px-20 items-center justify-between">
                 <Logo width={100} height={100}/>
                 <Menu/>
-                <div className="flex items-center gap-2">
-                    <button className="bg-orange-500 text-white p-2 px-5 rounded">Login</button>
-                    <button className="bg-blue-800 text-white p-2 px-5 rounded">Register</button>
-                </div>
+                {renderLoginButton()}
             </div>
         </nav>
     )

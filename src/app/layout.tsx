@@ -5,6 +5,7 @@ import Footer from '@/components/footer'
 import { Suspense } from 'react'
 import Loading from './loading'
 import Head from 'next/head'
+import { getSession } from '../../utils/hasSession'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -13,11 +14,13 @@ export const metadata = {
   description: 'Situs ini dibuat sebagai portofolio untuk menunjukkan kemampuan saya dalam membangun aplikasi web dengan menggunakan teknologi terbaru.',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const session = await getSession()
+
   return (
     <html lang="en">
       <Head>
@@ -28,7 +31,7 @@ export default function RootLayout({
       <body className={inter.className}>
        <Suspense fallback={<Loading/>}>
          {/* Navbar */}
-         <Navbar/>
+         <Navbar session={session}/>
         {/* End Navbar */}
 
         {/* Main */}
