@@ -30,7 +30,7 @@ export const authOptions: NextAuthOptions = {
         if (isExist) {
           return user;
         } else {
-          throw new Error("User not found");
+          return null;
         }
 
         // if (user) {
