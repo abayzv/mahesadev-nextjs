@@ -1,5 +1,6 @@
 import NextAuth, { type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { findUserByEmail } from "../../../../../services/userServices";
 
 export const authOptions: NextAuthOptions = {
@@ -43,6 +44,12 @@ export const authOptions: NextAuthOptions = {
         //   // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
         // }
       },
+    }),
+    GoogleProvider({
+      // @ts-ignore
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      // @ts-ignore
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
   pages: {
