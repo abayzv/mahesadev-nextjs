@@ -1,7 +1,7 @@
 'use client'
 
 import Select from "@/components/form/select";
-import stations from "../../api/stations";
+import stations from "../../lib/stations";
 import { useSearchStore } from "../../lib/store";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";

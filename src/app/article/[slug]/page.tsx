@@ -1,7 +1,7 @@
 import Image from "next/image"
 import { Metadata } from "next"
 import ArticleContent from "./article-content"
-import {fetchDatas} from "../../../../api"
+import {fetchDatas} from "../../../../lib"
 
 interface Owner {
     id: number

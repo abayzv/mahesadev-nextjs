@@ -1,6 +1,6 @@
 import ArticleList from "./article-list"
 import { Metadata } from "next"
-import {fetchDatas} from "../../../api"
+import {fetchDatas} from "../../../lib"
 import { findUserByEmail } from "../../../services/userServices"
 
 interface Article{

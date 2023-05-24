@@ -1,4 +1,4 @@
-import stations from "../../api/stations";
+import stations from "../../lib/stations";
 import Icon from "./icon";
 import { useSearchParams } from "next/navigation";
 
