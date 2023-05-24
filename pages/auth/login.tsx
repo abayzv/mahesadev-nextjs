@@ -10,17 +10,18 @@ import Logo from "@/components/logo";
 import Icon from "@/components/icon";
 
 export default function SignIn({
-  csrfToken,
+  csrfToken, error
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <div className="fixed top-0 w-[100%] h-[100%] flex items-center justify-center bg-blue-800">
       {/* <div className="cloud fixed top-0 left-0 w-[100%] h-[100%] -z-10 transform translate-y-20 opacity-100"></div> */}
       {/* <div className="wayang bg-no-repeat fixed top-0 left-0 w-[100%] h-[100%] -z-10 scale-105"></div> */}
-      <div className="bg-white shadow-md p-10 rounded-md w-[500px]">
+      <div className="bg-white shadow-md p-10 rounded-md w-[500px] grid gap-5">
         <div className="w-full flex justify-center">
           <Logo width={100} height={50} />
         </div>
-        <div className="mt-10">
+        {error && <div className="text-red-500 text-left bg-red-200 p-3">Email atau password tidak valid</div>}
+        <div>
           <form method="post" action="/api/auth/callback/credentials">
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <div className="grid gap-2 mb-3">
@@ -72,6 +73,9 @@ export default function SignIn({
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions);
 
+  // get query params
+  const { error } = context.query;
+
   if (session) {
     return {
       redirect: {
@@ -84,6 +88,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   return {
     props: {
       csrfToken: await getCsrfToken(context),
+      error : error || null
     },
   };
 }
