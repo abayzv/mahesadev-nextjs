@@ -23,7 +23,7 @@ export default function SignIn({
         </div>
         {error && <div className="text-red-500 text-left bg-red-200 p-3">Email atau password tidak valid</div>}
         <div>
-          <form method="post">
+          <form method="post" action="/api/auth/callback/credentials">
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <div className="grid gap-2 mb-3">
               <label  className="text-neutral-500">Email</label>
@@ -58,7 +58,7 @@ export default function SignIn({
             <div className="w-full text-end">
               <div className="text-neutral-500">Forgot Password ?</div>
               <button
-                type="button"
+                type="submit"
                 className="mt-5 w-full bg-orange-500 p-3 px-5 rounded text-white"
               >
                 Sign in
