@@ -5,7 +5,7 @@ import type {
 } from "next";
 import { getCsrfToken } from "next-auth/react";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { authOptions } from "../api/auth/[...nextauth]";
 import { signIn } from "next-auth/react";
 import Logo from "@/components/logo";
 import Icon from "@/components/icon";
