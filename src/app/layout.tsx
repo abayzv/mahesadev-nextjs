@@ -6,6 +6,7 @@ import { Suspense } from 'react'
 import Loading from './loading'
 import Head from 'next/head'
 import { getSession } from '../../utils/hasSession'
+import { NextAuthProvider } from "./providers";
 
 const inter = Inter({ subsets: ['latin'] })
 

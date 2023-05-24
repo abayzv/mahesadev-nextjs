@@ -6,6 +6,7 @@ import type {
 import { getCsrfToken } from "next-auth/react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { signIn } from "next-auth/react";
 import Logo from "@/components/logo";
 import Icon from "@/components/icon";
 
@@ -22,7 +23,7 @@ export default function SignIn({
         </div>
         {error && <div className="text-red-500 text-left bg-red-200 p-3">Email atau password tidak valid</div>}
         <div>
-          <form method="post" action="/api/auth/callback/credentials">
+          <form method="post">
             <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
             <div className="grid gap-2 mb-3">
               <label  className="text-neutral-500">Email</label>
@@ -57,10 +58,18 @@ export default function SignIn({
             <div className="w-full text-end">
               <div className="text-neutral-500">Forgot Password ?</div>
               <button
-                type="submit"
+                type="button"
                 className="mt-5 w-full bg-orange-500 p-3 px-5 rounded text-white"
               >
                 Sign in
+              </button>
+              <button
+              onClick={()=>{signIn("google")}}
+                type="button"
+                className="mt-5 w-full bg-white border p-3 px-5 rounded text-black flex items-center justify-center gap-5"
+              >
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png" className="w-7" alt="" />
+                Sign in With Google
               </button>
             </div>
           </form>
