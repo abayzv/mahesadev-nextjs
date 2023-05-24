@@ -15,13 +15,11 @@ export const metadata = {
   description: 'Situs ini dibuat sebagai portofolio untuk menunjukkan kemampuan saya dalam membangun aplikasi web dengan menggunakan teknologi terbaru.',
 }
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
-  const session = await getSession()
-
   return (
     <html lang="en">
       <Head>
@@ -32,7 +30,7 @@ export default async function RootLayout({
       <body className={inter.className}>
        <Suspense fallback={<Loading/>}>
          {/* Navbar */}
-         <Navbar session={session}/>
+         <Navbar/>
         {/* End Navbar */}
 
         {/* Main */}

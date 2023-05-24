@@ -4,14 +4,6 @@ const Train = ({size, color} : {size: string, color: string}) => {
     )
 }
 
-const Lock = ({size, color} : {size: string, color: string}) => {
-
-    return (
-        <svg xmlns="http://www.w3.org/2000/svg" width={size} fill={color} viewBox="0 0 448 512"><path d="M400 224h-24v-72C376 68.2 307.8 0 224 0S72 68.2 72 152v72H48c-26.5 0-48 21.5-48 48v192c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V272c0-26.5-21.5-48-48-48zm-104 0H152v-72c0-39.7 32.3-72 72-72s72 32.3 72 72v72z"/></svg>
-    )
-
-}
-
 const ArrowRigt = ({size, color} : {size: string, color: string}) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width={size} fill={color} viewBox="0 0 512 512"><path d="M256 8c137 0 248 111 248 248S393 504 256 504 8 393 8 256 119 8 256 8zM140 300h116v70.9c0 10.7 13 16.1 20.5 8.5l114.3-114.9c4.7-4.7 4.7-12.2 0-16.9l-114.3-115c-7.6-7.6-20.5-2.2-20.5 8.5V212H140c-6.6 0-12 5.4-12 12v64c0 6.6 5.4 12 12 12z"/></svg>
@@ -74,8 +66,6 @@ export default function Icon({name, size, color} : {name: string, size: string, 
                 return <Instagram size={size} color={color} />
             case 'youtube' :
                 return <Youtube size={size} color={color} />
-            case 'lock' :
-                return <Lock size={size} color={color} />
         }
     }
 
