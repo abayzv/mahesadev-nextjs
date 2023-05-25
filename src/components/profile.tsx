@@ -6,9 +6,9 @@ const Dropdown = ({user} : {user : any}) => {
     const {name} = user
 
     return (
-        <div className="absolute top-[100%] left-[50%] transform translate-x-[-50%] mt-5 p-2 w-[200px] bg-white z-10 rounded shadow-md">
+        <div className="fade-in w-full p-5 lg:absolute lg:top-[100%] lg:left-[50%] lg:transform lg:translate-x-[-50%] lg:mt-5 lg:p-2 lg:w-[200px] bg-white lg:z-10 rounded lg:shadow-md">
             <div className="text-center">
-                <div>Wellcome <span className="text-blue-800 font-bold">{name}</span></div>
+                <div className="text-neutral-700">Wellcome <span className="text-blue-800 font-bold">{name}</span></div>
             </div>
             <div>
                 <button className="w-full p-2 bg-orange-500 mt-2 text-white rounded">Profile</button>
@@ -38,11 +38,11 @@ export default function Profile({ user }: { user: any }) {
   }, [showDropdown])
 
   return (
-    <div ref={dropdown} className="flex items-center gap-2 relative">
-      <div onClick={()=>{setShowDropdown(!showDropdown)}} className="rounded-full cursor-pointer overflow-clip">
+    <div ref={dropdown} className="flex flex-col lg:flex-row items-center gap-3 lg:gap-2 relative justify-center lg:justify-normal p-5">
+      <div onClick={()=>{setShowDropdown(!showDropdown)}} className="rounded-full border-white border-4 lg:border-blue-800 cursor-pointer overflow-clip">
         <img
           src={image}
-          className="w-10 h-10"
+          className="lg:w-10 lg:h-10 w-20 h-20"
         />
       </div>
       {showDropdown && <Dropdown user={user}/>}
