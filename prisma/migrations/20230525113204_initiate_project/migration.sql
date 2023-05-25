@@ -14,6 +14,7 @@ CREATE TABLE "Passenger" (
     "id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "phone" TEXT NOT NULL,
+    "birthDate" TIMESTAMP(3) NOT NULL,
     "identityType" TEXT NOT NULL,
     "identityNumber" TEXT NOT NULL,
     "gender" TEXT NOT NULL,

@@ -6,9 +6,9 @@ export default function LoginButton(){
           <Link href="/auth/login" className="bg-orange-500 text-white p-2 px-5 rounded">
             Login
           </Link>
-          <button className="bg-blue-800 text-white p-2 px-5 rounded">
+          <Link href="/register" className="bg-blue-800 text-white p-2 px-5 rounded">
             Register
-          </button>
+          </Link>
         </div>
       );
 }

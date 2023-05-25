@@ -2,19 +2,24 @@
 
 import {useState} from 'react'
 import Icon from '../icon'
-import { useSearchStore } from '../../../lib/store'
+import { useSearchStore, useFormStore } from '../../../lib/store'
 
 
 export default function Input({name, type = "text", icon = "", placeHolder, value, required = false} : {name : string, type?: string, icon?: string, placeHolder?: string, value?: string, required?: boolean}){
 
     const [input, setInput] = useState(value || "")
     const { search, setSearch } = useSearchStore()
+    const { form, setForm } = useFormStore()
 
     // handle input change
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value)
         setSearch({
             ...search,
+            [e.target.name]: e.target.value
+        })
+        setForm({
+            ...form,
             [e.target.name]: e.target.value
         })
     }
@@ -33,7 +38,7 @@ export default function Input({name, type = "text", icon = "", placeHolder, valu
     return (
         <div className='flex border'>
             {renderIcon()}
-            <input type={type} name={name} placeholder={placeHolder} value={input} onChange={handleInputChange}  className="p-2 px-4 w-full outline-none" required={required} />
+            <input type={type} name={name} placeholder={placeHolder} value={input} onChange={handleInputChange} className="p-2 px-4 w-full outline-none" required={required} />
         </div>
     )
 }

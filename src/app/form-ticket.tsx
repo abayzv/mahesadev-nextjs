@@ -1,6 +1,6 @@
 'use client'
 
-import Select from "@/components/form/select";
+import Search from "@/components/form/search";
 import stations from "../../lib/stations";
 import { useSearchStore } from "../../lib/store";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -72,7 +72,7 @@ export default function FormTicket() {
                     <label className="text-lg font-medium text-blue-800" htmlFor="">
                         Stasiun Asal
                     </label>
-                    <Select
+                    <Search
                         name="origin"
                         options={stationsOptions}
                         icon="train"
@@ -84,7 +84,7 @@ export default function FormTicket() {
                     <label className="text-lg font-medium text-blue-800" htmlFor="">
                         Stasiun Tujuan
                     </label>
-                    <Select
+                    <Search
                         name="destination"
                         options={stationsOptions}
                         icon="train"

@@ -24,6 +24,7 @@ model Passenger {
   id        String    @id @unique @default(uuid())
   name      String
   phone     String
+  birthDate DateTime
   identityType String
   identityNumber String
   gender    String
