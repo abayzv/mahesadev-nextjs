@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { signOut } from "next-auth/react"
 
 const Dropdown = ({user} : {user : any}) => {
@@ -20,12 +20,28 @@ const Dropdown = ({user} : {user : any}) => {
 
 export default function Profile({ user }: { user: any }) {
   const [showDropdown, setShowDropdown] = useState(false);
+  const {image} = user
+  const dropdown = useRef(null)
+
+  useEffect(() => {
+    if(!showDropdown) return
+    const handleClickOutside = (event : any) => {
+      // @ts-ignore
+      if(dropdown.current && !dropdown.current.contains(event.target)){
+        setShowDropdown(false)
+      }
+    }
+
+    window.addEventListener('click', handleClickOutside)
+    return () => window.removeEventListener('click', handleClickOutside)
+
+  }, [showDropdown])
 
   return (
-    <div className="flex items-center gap-2 relative">
-      <div onClick={()=>{setShowDropdown(!showDropdown)}} className="rounded-full cursor-pointer overflow-clip border-2 border-blue-800">
+    <div ref={dropdown} className="flex items-center gap-2 relative">
+      <div onClick={()=>{setShowDropdown(!showDropdown)}} className="rounded-full cursor-pointer overflow-clip">
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541"
+          src={image}
           className="w-10 h-10"
         />
       </div>
