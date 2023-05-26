@@ -8,7 +8,7 @@ interface Props {
 
 export default function Logo({width, height} : Props){
     return (
-        <div>
+        <div className={`lg:w-auto w-20`}>
             <Link href="/"><Image src="https://mahesadev.com/logo-kai-new.png" alt="logo" width={width} height={height} /></Link>
         </div>
     )

@@ -43,7 +43,7 @@ export default async function RootLayout({
         {/* End Main */}
 
         {/* Footer */}
-        {/* <Footer/> */}
+        <Footer/>
         {/* End Footer */}
        </Suspense>
       </body>
