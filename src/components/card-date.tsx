@@ -10,7 +10,7 @@ export default function CardDate(){
     });
 
     return (
-        <div className="text-3xl font-bold text-white bg-orange-500 w-1/4 p-5 flex flex-col items-center justify-center text-center">
+        <div className="text-3xl font-bold text-white bg-orange-500 lg:w-1/4 p-5 flex flex-col items-center justify-center text-center">
             {dateLocale}
         </div>
     )

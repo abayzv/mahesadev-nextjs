@@ -1,6 +1,6 @@
 export default function RunningText() {
     return (
-        <div className="flex">
+        <div className="lg:flex hidden">
             <div className="bg-orange-500 text-white p-4 w-[150px] run-text--header">Berita Hari Ini</div>
             <div className="bg-black text-white flex overflow-clip w-full items-center">
                 <ul className="flex flex-nowrap w-[200%] slide-left">

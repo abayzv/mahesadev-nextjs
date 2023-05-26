@@ -40,7 +40,7 @@ export default async function Home() {
 
       {/* Section Order */}
       <div className="relative flex justify-center">
-        <div className="container mx-auto bg-white shadow-lg flex absolute -top-20">
+        <div className="container mx-auto bg-white lg:shadow-lg flex lg:flex-row flex-col lg:absolute lg:-top-20">
           <CardDate />
           <FormTicket />
         </div>
@@ -48,10 +48,10 @@ export default async function Home() {
       {/* End Section order */}
 
       {/* Content 1  */}
-      <section className="bg-white pb-32 pt-96">
-        <div className="container mx-auto px-20 flex items-center justify-between gap-10">
-          <div className="w-1/2 fadein-left">
-            <h2 className="text-4xl text-blue-800 font-black">
+      <section className="bg-white lg:pb-32 lg:pt-96 lg:py-0 py-10 overflow-clip lg:text-start text-center">
+        <div className="container mx-auto lg:px-20 px-5 flex lg:flex-row flex-col items-center justify-between gap-10">
+          <div className="lg:w-1/2 fadein-left">
+            <h2 className="lg:text-4xl text-2xl text-blue-800 font-black">
               AYO UPGRADE MEMBERSHIP KAI ACCESS KAMU KE{" "}
               <span className="text-orange-500">MEMBER PREMIUM</span> DAN
               NIKMATI RAGAM MANFAATNYA
@@ -69,7 +69,7 @@ export default async function Home() {
               </button>
             </div>
           </div>
-          <div className="w-1/2 flex justify-center style-1 fadein-right">
+          <div className="lg:w-1/2 flex justify-center style-1 fadein-right">
             <img
               src="https://mahesadev.com/1c8bdc9a4fc72dbe29bc1e51e13d8bad.jpeg"
               className="w-[500px] rounded-lg style-1 hover:transform hover:scale-105 transition-all"
@@ -82,7 +82,7 @@ export default async function Home() {
       {/* Call to Action */}
       <section className="bg-blue-800 bg-[url('https://static.republika.co.id/uploads/member/images/news/rvgw9m2nui.jpg')] bg-blend-multiply bg-cover bg-center py-20 text-white">
         <div className="container mx-auto px-20 text-center grid gap-5">
-          <h2 className="text-3xl font-black">Premium Member</h2>
+          <h2 className="lg:text-3xl text-2xl font-black">Premium Member</h2>
           <p className="text-lg">
             Nikmati Berbagai Keuntungan Dengan Menjadi Premium Member
           </p>
@@ -96,16 +96,16 @@ export default async function Home() {
       {/* End Call to Action */}
 
       {/* Content 2  */}
-      <section className="bg-white py-32">
-        <div className="container mx-auto px-20 flex items-center justify-between gap-10">
-          <div className="w-1/2 flex justify-center style-1 fadein-left">
+      <section className="bg-white lg:py-32 py-10 overflow-clip lg:text-start text-center">
+        <div className="container mx-auto lg:px-20 px-5 flex lg:flex-row flex-col items-center justify-between gap-10">
+          <div className="lg:w-1/2 flex justify-center style-1 fadein-left">
             <img
               src="https://i.ytimg.com/vi/eq4CGvMt4F8/maxresdefault.jpg"
               className="w-[500px] rounded-lg style-1 hover:transform hover:scale-105 transition-all"
             />
           </div>
-          <div className="w-1/2 fadein-right">
-            <h2 className="text-6xl text-blue-800 font-black">
+          <div className="lg:w-1/2 fadein-right">
+            <h2 className="lg:text-6xl text-3xl text-blue-800 font-black">
               CARA PEMBATALAN TIKET KERETA DI KAI ACCESS
             </h2>
             <p className="mt-5 text-lg">
@@ -124,7 +124,7 @@ export default async function Home() {
       {/* End Content 1 */}
 
       {/* Media Slider */}
-      <MediaSlider media={mediaData} />
+      {/* <MediaSlider media={mediaData} /> */}
       {/* End Media Slider */}
     </div>
   );

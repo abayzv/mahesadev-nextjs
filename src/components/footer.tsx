@@ -64,7 +64,7 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <div className="py-6 border-t border-[#00000040] mt-16 lg:text-start text-center lg:text-base text-xs">
+                <div className="py-6 border-t border-[#00000040] lg:mt-16 mt-5 lg:text-start text-center lg:text-base text-xs">
                     Copyright © 2023 Mahesadev, All rights reserved.
                 </div>
             </div>

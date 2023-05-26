@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Icon from "./icon";
@@ -15,6 +15,7 @@ export default function Menu({
 }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const menuRef = useRef(null);
 
   // set active menu by path
   const pathName = usePathname();
@@ -36,6 +37,17 @@ export default function Menu({
   useEffect(() => {
     const index = menu.findIndex((item) => item.link === pathName);
     setActiveIndex(index);
+
+    // close mobile menu when click outside
+    const handleClickOutside = (event: any) => {
+      // @ts-ignore
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMobileMenu(false);
+      }
+    }
+
+    window.addEventListener("click", handleClickOutside);
+    return () => window.removeEventListener("click", handleClickOutside);
   }, [menu, pathName]);
 
   return (
@@ -56,7 +68,7 @@ export default function Menu({
           ))}
         </ul>
       ) : (
-        <>
+        <div ref={menuRef}>
           <div>
             <button
               onClick={() => {
@@ -68,7 +80,7 @@ export default function Menu({
             </button>
           </div>
           <div
-            className={`fixed top-0 left-0 bg-blue-800 text-white w-3/4 h-[100%] ${
+            className={`fixed top-0 left-0 bg-blue-800 z-50 text-white w-3/4 h-[100%] shadow-md ${
               showMobileMenu ? "slide-in-left" : "slide-out-left"
             }`}
           >
@@ -90,7 +102,7 @@ export default function Menu({
               ))}
             </ul>
           </div>
-        </>
+        </div>
       )}
     </>
   );

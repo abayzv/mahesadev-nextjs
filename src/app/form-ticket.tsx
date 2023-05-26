@@ -55,11 +55,11 @@ export default function FormTicket() {
         // if origin and destination empty
         if(search['origin'] && search['destination'] && search['date'] && search['adult'] && search['child']){
             return (
-                <Link href={{ pathname: '/search', query: search }} className="bg-blue-800 text-white text-lg flex items-center justify-center rounded-md">Cari Ticket</Link>
+                <Link href={{ pathname: '/search', query: search }} className="bg-blue-800 p-3 lg:p-0 text-white text-lg flex items-center justify-center rounded-md">Cari Ticket</Link>
             )
         } else {
             return (
-                <button type="button" className="bg-gray-500 text-white text-lg flex items-center justify-center rounded-md">Cari Ticket</button>
+                <button type="button" className="bg-gray-500 p-3 lg:p-0 text-white text-lg flex items-center justify-center rounded-md">Cari Ticket</button>
             )
         }
     }
@@ -67,7 +67,7 @@ export default function FormTicket() {
     return (
         <div className="w-full p-10 relative overflow-clip">
             <div className="bg-orange-500 w-20 h-20 absolute -top-10 -right-10 transform rotate-45"></div>
-            <form className="grid grid-cols-2 gap-x-10 gap-y-5">
+            <form className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
                 <div className="grid gap-2">
                     <label className="text-lg font-medium text-blue-800" htmlFor="">
                         Stasiun Asal

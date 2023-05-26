@@ -8,7 +8,7 @@ import Profile from "@/components/profile";
 
 export default function Navbar({ session }: { session: any }) {
   return (
-    <nav className="lg:p-3 p-5 bg-white">
+    <nav className=" bg-white lg:p-0 p-3">
       <div className="container flex mx-auto lg:px-20 md:px-5 items-center justify-between">
         <div>
           <Logo width={100} height={100} />

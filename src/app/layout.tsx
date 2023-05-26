@@ -35,11 +35,11 @@ export default async function RootLayout({
         {/* End Navbar */}
 
         {/* Main */}
-        {/* <main>
+        <main>
           <div className="bg-slate-100">
             {children}
           </div>
-        </main> */}
+        </main>
         {/* End Main */}
 
         {/* Footer */}
