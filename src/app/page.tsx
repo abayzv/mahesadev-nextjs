@@ -124,7 +124,7 @@ export default async function Home() {
       {/* End Content 1 */}
 
       {/* Media Slider */}
-      {/* <MediaSlider media={mediaData} /> */}
+      <MediaSlider media={mediaData} />
       {/* End Media Slider */}
     </div>
   );
