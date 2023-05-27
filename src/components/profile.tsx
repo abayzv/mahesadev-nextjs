@@ -41,7 +41,7 @@ export default function Profile({ user }: { user: any }) {
     <div ref={dropdown} className="flex flex-col lg:flex-row items-center gap-3 lg:gap-2 relative justify-center lg:justify-normal p-5">
       <div onClick={()=>{setShowDropdown(!showDropdown)}} className="rounded-full border-white border-4 lg:bg-2 lg:border-blue-800 cursor-pointer overflow-clip">
         <img
-          src={image}
+          src={image ? image : 'https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541'}
           className="lg:w-10 lg:h-10 w-20 h-20"
         />
       </div>

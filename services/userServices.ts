@@ -20,6 +20,9 @@ const findUserByEmail = async (email: string) => {
     where: {
       email,
     },
+    include: {
+      passengers: true,
+    },
   });
 
   return user;
