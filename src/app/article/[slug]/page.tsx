@@ -1,49 +1,45 @@
-import Image from "next/image"
-import { Metadata } from "next"
-import ArticleContent from "./article-content"
-import {fetchDatas} from "../../../../lib"
+import Image from "next/image";
+import { Metadata } from "next";
+import ArticleContent from "./article-content";
+import { article as articleData, Article } from "../../../../lib/article";
+import Link from "next/link";
 
-interface Owner {
-    id: number
-    title: string
-    firstName: string
-    lastName: string
-    picture: string
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+
+  // get article by slug from articleData
+  const article = articleData.find(
+    (article) => article.slug === slug
+  ) as Article;
+
+  return {
+    title: article.title,
+    description: article.title,
+  };
 }
 
-interface Article {
-    id: number
-    image: string
-    likes: number
-    link: string
-    tags: Array<string>
-    text: string
-    publishDate: string
-    owner: Owner
-}
+export default async function Article({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const { slug } = params;
+  const article = articleData.find(
+    (article) => article.slug === slug
+  ) as Article;
 
-async function getArticle(slug: string) : Promise<Article> {
-    const article = await fetchDatas(`/post/${slug}`)
-    return article
-}
-
-export async function generateMetadata({params}: {params: {slug: string}}) {
-    const {slug} = params
-    const article = await getArticle(slug)
-
-    return {
-      title: article.text,
-      description: article.text,
-    };
-  }
-
-export default async function Article({params}: {params: {slug: string}}){
-    const {slug} = params
-    const article = await getArticle(slug)
-    
-    return (
-        <div>
-            <ArticleContent article={article} />
-        </div>
-    )
+  return (
+    <div>
+      <div className="mb-5">
+        <Link href="/">Home</Link> /{" "}
+        <Link href="/article">News</Link> /{" "}
+        <span className="text-orange-500 font-medium">{article.title}</span>
+      </div>
+      <ArticleContent article={article} />
+    </div>
+  );
 }

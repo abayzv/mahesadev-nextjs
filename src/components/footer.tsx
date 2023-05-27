@@ -12,8 +12,8 @@ export default function Footer() {
                         <Logo width={150} height={150}/>
                         <p>Molestie ad feugiat est facilisi faucibus magnis. Convallis magna pellentesque odio fusce turpis elit.</p>
                         <div className="flex gap-2">
-                            <Image src="/assets/images/app-store-button.png" alt="Download from Appstore" title="Download from Appstore" width={100} height={40} className="w-[100px] h-[40px]" />
-                            <Image src="/assets/images/playstore-button.png" alt="Download from Playstore" title="Download from Playstore" width={100} height={40}  className="w-[100px] h-[40px]" />
+                            <Image src="/assets/images/app-store-button.png" alt="Download from Appstore" title="Download from Appstore" width={100} height={40} className="w-[100px] h-[35px]" />
+                            <Image src="/assets/images/playstore-button.png" alt="Download from Playstore" title="Download from Playstore" width={100} height={40}  className="w-[100px] h-[35px]" />
                         </div>
                     </div>
 
