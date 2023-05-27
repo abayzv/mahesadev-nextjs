@@ -11,7 +11,7 @@ export default function Navbar({ session }: { session: any }) {
     <nav className=" bg-white lg:p-0 p-3">
       <div className="container flex mx-auto lg:px-20 md:px-5 items-center justify-between">
         <div>
-          <Logo width={100} height={100} />
+          <Logo width={70} height={70} />
         </div>
         <div className="hidden lg:block">
           <Menu type="standard" />

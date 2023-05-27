@@ -70,6 +70,13 @@ const User = ({size, color} : {size: string, color: string}) => {
     )
 }
 
+const Location = ({size, color} : {size: string, color: string}) => {
+
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" width={size} fill={color} viewBox="0 0 384 512"><path d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"/></svg>
+    )
+}
+
 const Facebook = ({size, color} : {size: string, color: string}) => {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width={size} fill={color} viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
@@ -126,6 +133,8 @@ export default function Icon({name, size, color} : {name: string, size: string, 
                 return <Close size={size} color={color} />
             case 'menu' :
                 return <Menu size={size} color={color} />
+            case 'location' :
+                return <Location size={size} color={color} />
         }
     }
 

@@ -3,6 +3,9 @@ import MediaSlider from "@/components/media-slider";
 import FormTicket from "./form-ticket";
 import CardDate from "@/components/card-date";
 import RunningText from "@/components/running-text";
+import Service from "@/components/service";
+import Galleries, { Gallery } from "@/components/gallery";
+import HeaderContent from "@/components/header-content";
 
 interface Media {
   src: string;
@@ -31,6 +34,32 @@ export default async function Home() {
       src: "https://assets.pikiran-rakyat.com/crop/0x0:0x0/x/photo/2020/06/30/3940544672.jpg",
       title: "KAI Access",
     },
+  ];
+  const galleryData: Array<Gallery> = [
+    {
+      src: "https://mahesadev.com/LOGOKAISERVICES-01.png",
+      title: "KAI Services",
+    },
+    {
+      src: "https://mahesadev.com/LOGOKAIWISATA-01.png",
+      title: "KAI Wisata",
+    },
+    {
+      src: "https://mahesadev.com/LOGOKAIPROPERTI-01.png",
+      title: "KAI Properti",
+    },
+    {
+      src: "https://mahesadev.com/LOGOKAILOGISTIK-01.png",
+      title: "KAI Logistik",
+    },
+    {
+      src: "https://mahesadev.com/LOGOKAICOMMUTER-01.png",
+      title: "KAI Commuter",
+    },
+    {
+      src: "https://mahesadev.com/LOGOKAIBANDARA-01.png",
+      title: "KAI Bandara",
+    }
   ];
 
   return (
@@ -122,6 +151,21 @@ export default async function Home() {
         </div>
       </section>
       {/* End Content 1 */}
+
+      {/* Service */}
+      <Service />
+      {/* End Service */}
+
+      {/* Subsidiary */}
+      <section className="bg-white lg:py-10 py-0">
+        <div className="container mx-auto lg:px-20">
+         {/* <HeaderContent title="Anak Perusahaan" /> */}
+          <div>
+            <Galleries gallery={galleryData} type="partners" />
+          </div>
+        </div>
+      </section>
+      {/* End Subsidiary */}
 
       {/* Media Slider */}
       <MediaSlider media={mediaData} />

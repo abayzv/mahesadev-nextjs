@@ -90,7 +90,7 @@ export default function Menu({
                 <Link href={item.link} key={index}>
                   <li
                     key={index}
-                    className={`uppercase text-md font-semibold px-7 py-7 ${
+                    className={`uppercase text-md font-medium px-7 py-5 ${
                       activeIndex === index
                         ? "text-white bg-blue-700"
                         : "text-white"
