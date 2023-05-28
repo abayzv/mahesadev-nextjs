@@ -165,13 +165,13 @@ export default function FormRegister() {
   };
 
   return (
-    <div className="w-2/3 mx-auto">
+    <div className="lg:w-2/3 mx-auto">
       <div ref={alertComp}>
         {alert.show && <Alert message={alert.message} type={alert.type} callback={()=>{setAlert({...alert, show: false})}} />}
       </div>
       <div className="bg-white p-10 border">
         <h1 className="font-bold text-lg text-blue-800">Biodata</h1>
-        <div className="grid grid-cols-3 gap-x-10 gap-y-5 mt-5">
+        <div className="grid lg:grid-cols-3 lg:gap-x-10 gap-y-5 mt-5">
           <div>
             <label
               htmlFor="gender"
