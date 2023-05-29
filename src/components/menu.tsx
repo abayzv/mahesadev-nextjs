@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useMemo, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
 import Icon from "./icon";
 import AuthButton from "./auth-btn";
@@ -44,11 +44,16 @@ export default function Menu({
       if (menuRef.current && !menuRef.current.contains(event.target)) {
         setShowMobileMenu(false);
       }
-    }
+    };
 
     window.addEventListener("click", handleClickOutside);
     return () => window.removeEventListener("click", handleClickOutside);
   }, [menu, pathName]);
+
+  // router change close mobile menu
+  useEffect(() => {
+    setShowMobileMenu(false);
+  }, [pathName]);
 
   return (
     <>
@@ -79,29 +84,31 @@ export default function Menu({
               <Icon name="menu" size="20" color="#00000070" />
             </button>
           </div>
-          <div
-            className={`fixed top-0 left-0 bg-blue-800 z-50 text-white w-3/4 h-[100%] shadow-md ${
-              showMobileMenu ? "slide-in-left" : "slide-out-left"
-            }`}
-          >
-            <AuthButton session={session} />
-            <ul>
-              {menu.map((item, index) => (
-                <Link href={item.link} key={index}>
-                  <li
-                    key={index}
-                    className={`uppercase text-md font-medium px-7 py-5 ${
-                      activeIndex === index
-                        ? "text-white bg-blue-700"
-                        : "text-white"
-                    }`}
-                  >
-                    {item.name}
-                  </li>
-                </Link>
-              ))}
-            </ul>
-          </div>
+          {showMobileMenu && (
+            <div
+              className={`fixed top-0 left-0 bg-blue-800 z-50 text-white w-3/4 h-[100%] shadow-md ${
+                showMobileMenu ? "slide-in-left" : "slide-out-left"
+              }`}
+            >
+              <AuthButton session={session} />
+              <ul>
+                {menu.map((item, index) => (
+                  <Link href={item.link} key={index}>
+                    <li
+                      key={index}
+                      className={`uppercase text-md font-medium px-7 py-5 ${
+                        activeIndex === index
+                          ? "text-white bg-blue-700"
+                          : "text-white"
+                      }`}
+                    >
+                      {item.name}
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
       )}
     </>

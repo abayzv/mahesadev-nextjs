@@ -48,7 +48,7 @@ export default function Search({name, options, icon = "", placeHolder, value, re
     const renderResult = () => {
         if(showResult && result.length > 0){
             return (
-                <div className='absolute mt-2 bg-white border w-full max-h-60 overflow-y-auto'>
+                <div className='absolute mt-2 bg-white border w-full max-h-60 overflow-y-auto z-30'>
                     {
                         Object.keys(groupResult).map((group, index) => (
                             <div key={index}>

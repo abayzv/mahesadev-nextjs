@@ -6,6 +6,7 @@ import RunningText from "@/components/running-text";
 import Service from "@/components/service";
 import Galleries, { Gallery } from "@/components/gallery";
 import HeaderContent from "@/components/header-content";
+import Loading from "./loading";
 
 interface Media {
   src: string;
@@ -64,6 +65,7 @@ export default async function Home() {
 
   return (
     <div>
+      <Loading/>
       <RunningText />
       <Hero />
 
